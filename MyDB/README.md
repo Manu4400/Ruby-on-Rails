@@ -4,7 +4,7 @@ This repository contains **Day 2 learning work** for Ruby on Rails, focused on *
 
 ---
 
-## 📌 Topics Covered
+##  Topics Covered
 
 ### Database Clients
 - **DBeaver (GUI Tool)**
