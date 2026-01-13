@@ -1,24 +1,36 @@
-# README
+# Rails Day 2 – Database & Scaffolding
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository contains **Day 2 learning work** for Ruby on Rails, focused on **database setup, migrations, scaffolding, and CRUD operations** using PostgreSQL.
 
-Things you may want to cover:
+---
 
-* Ruby version
+## 📌 Topics Covered
 
-* System dependencies
+### Database Clients
+- **DBeaver (GUI Tool)**
+  - Supports PostgreSQL, MySQL, Oracle, SQL Server, NoSQL
+  - Useful for ER diagrams and visual queries
+  - Requires database server to be running
 
-* Configuration
+- **psql (Command Line)**
+  - PostgreSQL only
+  - Lightweight and fast
+  - Commonly used for terminal-based database work
 
-* Database creation
+---
 
-* Database initialization
+## Rails Project Setup
 
-* How to run the test suite
+### Create Rails App with PostgreSQL
+```bash
+rails new my_application -d postgresql
 
-* Services (job queues, cache servers, search engines, etc.)
+### Database Initialization
+rails db:create
+rails db:migrate
+db:create → Creates the database
+db:migrate → Runs migrations and creates tables
 
-* Deployment instructions
-
-* ...
+### Scaffolding (CRUD)
+Generate Scaffold
+rails generate scaffold Customer name:string email:string age:integer
