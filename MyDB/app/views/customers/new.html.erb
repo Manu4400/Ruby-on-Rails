@@ -1,0 +1,11 @@
+<% content_for :title, "New customer" %>
+
+<div class="container">
+  <h1 class="page-title">New customer</h1>
+
+  <%= render "form", customer: @customer %>
+
+  <div style="margin-top:1rem">
+    <%= link_to "Back to customers", customers_path, class: "btn btn-ghost" %>
+  </div>
+</div>

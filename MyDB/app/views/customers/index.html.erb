@@ -1,0 +1,36 @@
+<% content_for :title, "Customers" %>
+
+<div class="container">
+  <% if notice.present? %>
+    <div class="notice"><%= notice %></div>
+  <% end %>
+
+  <h1 class="page-title">Customers</h1>
+
+  <div class="actions">
+    <%= link_to "New customer", new_customer_path, class: "btn btn-primary" %>
+  </div>
+
+  <table class="customers-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr id="<%= dom_id customer %>">
+          <td><%= customer.name %></td>
+          <td class="meta"><%= mail_to customer.email %></td>
+          <td class="row-actions">
+            <%= link_to "Show", customer, class: "btn btn-ghost" %>
+            <%= link_to "Edit", edit_customer_path(customer), class: "btn btn-ghost" %>
+            <%= button_to "Destroy", customer, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-ghost" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
