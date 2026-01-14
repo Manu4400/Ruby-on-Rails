@@ -1,24 +1,9 @@
-# README
+# Day3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Running skip commands
 
-Things you may want to cover:
+**rails new myapp  with out skip**
+command : rails new AppName
 
-* Ruby version
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0a068621-a33e-478a-b0d3-0c2d060bcf79" />
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
