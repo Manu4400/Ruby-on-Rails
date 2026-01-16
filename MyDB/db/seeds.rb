@@ -7,3 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+Product.create!(
+  name: "Sample Product",
+  description: "This is a seeded product",
+  price: 19.99,
+  stock: 100,
+  is_active: true
+)

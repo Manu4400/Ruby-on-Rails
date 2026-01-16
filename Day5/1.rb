@@ -26,5 +26,32 @@ e = {name: "Manu", age: 24}
 puts e.class
 puts "Name :#{e[:name]}"
 
+puts "Enter your name:"
+UserName =gets.chomp
+puts "Hello, #{UserName}!"
+
+
+class Student 
+  attr_accessor :name,:age
+
+  def display
+    puts "Name of the student is #{name} and age is #{age}"
+  end
+end
+
+s1 =Student.new
+
+puts"Enter student name :"
+s1.name = gets.chomp
+
+puts"Enter student age :"
+s1.age = gets.chomp.to_i
+
+
+
+for i in 1..3
+
+ s[i] = Student.new
+puts "Enter name of student #{i}:"
 
 
