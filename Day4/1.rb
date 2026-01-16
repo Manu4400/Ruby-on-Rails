@@ -44,3 +44,6 @@ p2.id = 2
 p2.present = false
 p2.display
 
+=begin
+loops
+=end
