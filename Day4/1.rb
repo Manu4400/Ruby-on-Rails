@@ -11,6 +11,8 @@ puts str.class
 puts name.object_id
 puts str.object_id
 
+
+
 5.times do 
   puts str.object_id
 end
@@ -44,6 +46,11 @@ p2.id = 2
 p2.present = false
 p2.display
 
+#In ruby there is no return type for methods. By default every method returns the value of the last evaluated expression.
+
+#single line comment
 =begin
-loops
+This is a
+multi-line comment 
+in Ruby.
 =end
