@@ -1,27 +1,75 @@
-<%= form_with(model: customer) do |form| %>
-  <% if customer.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+<div style="
+  background:#FFFFFF;
+  border-radius:16px;
+  box-shadow:0 10px 26px rgba(153,151,153,0.18);
+  padding:36px;
+  max-width:680px;
+">
 
-      <ul>
-        <% customer.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <%= form_with(model: customer, local: true) do |f| %>
+
+    
+    <div style="margin-bottom:22px;">
+      <label style="
+        font-weight:600;
+        color:#1F2937;
+        display:block;
+        margin-bottom:8px;
+      ">
+        Name
+      </label>
+
+      <%= f.text_field :name,
+        placeholder: "Full name",
+        style: "
+          width:100%;
+          padding:12px 14px;
+          border-radius:12px;
+          border:1px solid #CBD5E1;
+          font-size:15px;
+          outline:none;
+        "
+      %>
     </div>
+
+ 
+    <div style="margin-bottom:28px;">
+      <label style="
+        font-weight:600;
+        color:#1F2937;
+        display:block;
+        margin-bottom:8px;
+      ">
+        Email
+      </label>
+
+      <%= f.email_field :email,
+        placeholder: "email@example.com",
+        style: "
+          width:100%;
+          padding:12px 14px;
+          border-radius:12px;
+          border:1px solid #CBD5E1;
+          font-size:15px;
+          outline:none;
+        "
+      %>
+    </div>
+
+  
+    <%= f.submit(
+      customer.persisted? ? "Update Customer" : "Create Customer",
+      style: "
+        background:#BDD358;
+        color:#FFFFFF;
+        padding:12px 26px;
+        border:none;
+        border-radius:999px;
+        font-size:15px;
+        font-weight:600;
+        cursor:pointer;
+      "
+    ) %>
+
   <% end %>
-
-  <div class="form-field">
-    <%= form.label :name %>
-    <%= form.text_field :name, placeholder: "Full name" %>
-  </div>
-
-  <div class="form-field">
-    <%= form.label :email %>
-    <%= form.email_field :email, placeholder: "email@example.com" %>
-  </div>
-
-  <div>
-    <%= form.submit class: "btn btn-success" %>
-  </div>
-<% end %>
+</div>

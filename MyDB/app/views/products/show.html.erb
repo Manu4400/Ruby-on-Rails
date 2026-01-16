@@ -1,10 +1,35 @@
-<p style="color: green"><%= notice %></p>
+<div style="max-width:700px; margin:60px auto; padding:0 20px;">
 
-<%= render @product %>
+  <!-- Render card WITHOUT buttons -->
+  <%= render @product, hide_actions: true %>
 
-<div>
-  <%= link_to "Edit this product", edit_product_path(@product) %> |
-  <%= link_to "Back to products", products_path %>
+  <!-- Page-level actions -->
+  <div style="margin-top:26px; display:flex; gap:14px; justify-content:center;">
+    <%= link_to "Edit",
+      edit_product_path(@product),
+      style: "
+        background:#E56B70;
+        color:white;
+        padding:10px 22px;
+        border-radius:999px;
+        text-decoration:none;
+      " %>
 
-  <%= button_to "Destroy this product", @product, method: :delete %>
+    <%= link_to "Back",
+      products_path,
+      style: "color:#361134; font-weight:600;" %>
+
+    <%= button_to "Delete",
+      @product,
+      method: :delete,
+      data: { confirm: "Are you sure?" },
+      style: "
+        background:#361134;
+        color:white;
+        padding:10px 22px;
+        border-radius:999px;
+        border:none;
+      " %>
+  </div>
+
 </div>

@@ -1,15 +1,131 @@
-<div class="container">
-  <% if notice.present? %>
-    <div class="notice"><%= notice %></div>
-  <% end %>
+<div style="
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#F7F9FC;
+">
 
-  <h1 class="page-title">Customer</h1>
+  <div style="
+    width:100%;
+    max-width:680px;
+    padding:24px;
+    font-family: Inter, system-ui, sans-serif;
+  ">
 
-  <%= render @customer %>
+    <!-- Page Title -->
+    <h1 style="
+      text-align:center;
+      font-size:30px;
+      font-weight:800;
+      color:#0f172a;
+      margin-bottom:28px;
+    ">
+      Customer Details
+    </h1>
 
-  <div style="margin-top:1rem">
-    <%= link_to "Edit", edit_customer_path(@customer), class: "btn btn-ghost" %>
-    <%= link_to "Back to customers", customers_path, class: "btn btn-ghost" %>
-    <%= button_to "Destroy", @customer, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-ghost" %>
+    <!-- Card -->
+    <div style="
+      background:#FFFFFF;
+      border-radius:18px;
+      box-shadow:0 12px 30px rgba(15,23,42,0.08);
+      padding:28px 32px;
+    ">
+
+      <!-- Name -->
+      <div style="margin-bottom:22px;">
+        <label style="
+          display:block;
+          font-size:13px;
+          font-weight:600;
+          color:#6b7280;
+          margin-bottom:6px;
+        ">
+          Name
+        </label>
+
+        <div style="
+          padding:12px 14px;
+          border-radius:10px;
+          border:1px solid #e5e7eb;
+          background:#f9fafb;
+          font-size:15px;
+          color:#111827;
+        ">
+          <%= @customer.name.presence || "—" %>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div style="margin-bottom:28px;">
+        <label style="
+          display:block;
+          font-size:13px;
+          font-weight:600;
+          color:#6b7280;
+          margin-bottom:6px;
+        ">
+          Email
+        </label>
+
+        <div style="
+          padding:12px 14px;
+          border-radius:10px;
+          border:1px solid #e5e7eb;
+          background:#f9fafb;
+          font-size:15px;
+        ">
+          <%= mail_to @customer.email,
+            @customer.email,
+            style: "color:#2563eb; text-decoration:none;" %>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        border-top:1px solid #e5e7eb;
+        padding-top:18px;
+      ">
+
+        <div style="display:flex; gap:20px;">
+          <%= link_to "Edit",
+            edit_customer_path(@customer),
+            style: "
+              color:#84cc16;
+              font-weight:600;
+              text-decoration:none;
+            " %>
+
+          <%= link_to "Back",
+            customers_path,
+            style: "
+              color:#6b7280;
+              text-decoration:none;
+            " %>
+        </div>
+
+        <%= button_to "Delete",
+          @customer,
+          method: :delete,
+          data: { confirm: "Are you sure?" },
+          form: { style: "margin:0;" },
+          style: "
+            background:#ffffff;
+            color:#ef4444;
+            border:1px solid #fecaca;
+            padding:8px 18px;
+            border-radius:999px;
+            font-size:14px;
+            font-weight:600;
+            cursor:pointer;
+          "
+        %>
+
+      </div>
+
+    </div>
   </div>
 </div>

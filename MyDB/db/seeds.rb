@@ -1,18 +1,29 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# Fixed seeds.rb
 
+Product.create!([
+  {
+    name: "Sample Product",
+    description: "This is a seeded product",
+    price: 19.99,
+    stock: 100,
+    is_active: true
+  },
+  {
+    name: "Another Product",
+    description: "This is another seeded product",
+    price: 29.99,
+    stock: 50,
+    is_active: true
+  }
+])
 
-Product.create!(
-  name: "Sample Product",
-  description: "This is a seeded product",
-  price: 19.99,
-  stock: 100,
-  is_active: true
-)
+# Additional sample products using faker gem
+10.times do
+  Product.create!(
+    name: Faker::Commerce.product_name,
+    description: "This sample product is generated using the faker gem",
+    price: Faker::Commerce.price(range: 1000..10000),
+    stock: rand(10..200),
+    is_active: [true, false].sample
+  )
+end

@@ -1,27 +1,56 @@
-<div id="<%= dom_id product %>">
-  <div>
-    <strong>Name:</strong>
+<div id="<%= dom_id product %>" style="
+  width:100%;
+  max-width:360px;
+  background:white;
+  border-radius:20px;
+  padding:22px;
+  box-shadow:0 12px 30px rgba(54,17,52,0.15);
+">
+
+  <h3 style="margin:0 0 8px; color:#361134;">
     <%= product.name %>
-  </div>
+  </h3>
 
-  <div>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </div>
+  <p style="margin:0 0 18px; color:#555; font-size:14px;">
+    <%= truncate(product.description, length: 100) %>
+  </p>
 
-  <div>
-    <strong>Price:</strong>
-    <%= product.price %>
-  </div>
+  <% unless local_assigns[:hide_actions] %>
+    <div style="display:flex; gap:10px;">
 
-  <div>
-    <strong>Stock:</strong>
-    <%= product.stock %>
-  </div>
+      <%= link_to "View", product, style: "
+        background:#B0228C;
+        color:white;
+        padding:6px 16px;
+        border-radius:999px;
+        font-size:13px;
+        text-decoration:none;
+      " %>
 
-  <div>
-    <strong>Is active:</strong>
-    <%= product.is_active %>
-  </div>
+      <%= link_to "Edit", edit_product_path(product), style: "
+        background:#EA3788;
+        color:white;
+        padding:6px 16px;
+        border-radius:999px;
+        font-size:13px;
+        text-decoration:none;
+      " %>
+
+      <%= button_to "Delete",
+        product,
+        method: :delete,
+        data: { confirm: "Are you sure?" },
+        form: { style: "display:inline;" },
+        style: "
+          background:#361134;
+          color:white;
+          padding:6px 16px;
+          border-radius:999px;
+          border:none;
+          font-size:13px;
+        " %>
+
+    </div>
+  <% end %>
 
 </div>

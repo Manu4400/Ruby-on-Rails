@@ -1,16 +1,40 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Products" %>
 
-<h1>Products</h1>
+<div style="
+  max-width:1200px;
+  margin:50px auto;
+  padding:0 20px;
+">
 
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
-  <% end %>
+  <!-- Header -->
+  <div style="
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
+  ">
+    <h1 style="color:#361134; margin:0;">Products</h1>
+
+    <%= link_to "+ New Product", new_product_path, style: "
+      background:#EA3788;
+      color:white;
+      padding:12px 26px;
+      border-radius:999px;
+      font-weight:600;
+      text-decoration:none;
+    " %>
+  </div>
+
+  <!-- Product Grid -->
+  <div style="
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap:32px;
+    justify-items:center;
+  ">
+    <% @products.each do |product| %>
+      <%= render product %>
+    <% end %>
+  </div>
+
 </div>
-
-<%= link_to "New product", new_product_path %>

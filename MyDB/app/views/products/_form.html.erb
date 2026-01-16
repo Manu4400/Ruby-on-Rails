@@ -1,8 +1,18 @@
-<%= form_with(model: product) do |form| %>
-  <% if product.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<% input_style = "
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #E56B70;
+  font-size:14px;
+" %>
 
+<%= form_with(model: product) do |form| %>
+
+  <% if product.errors.any? %>
+    <div style="background:#F391A0; padding:14px; border-radius:8px; margin-bottom:20px;">
+      <strong style="color:#361134;">
+        <%= pluralize(product.errors.count, 'error') %> prohibited this product from being saved:
+      </strong>
       <ul>
         <% product.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,32 +21,41 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div style="
+    background:#fff;
+    padding:28px;
+    border-radius:16px;
+    box-shadow:0 8px 24px rgba(54,17,52,0.15);
+  ">
+
+    <% [:name, :description, :price, :stock].each do |field| %>
+      <div style="margin-bottom:18px;">
+        <%= form.label field,
+          style: 'display:block; font-weight:600; color:#361134; margin-bottom:6px;' %>
+
+        <% if field == :description %>
+          <%= form.textarea field, rows: 3, style: input_style %>
+        <% else %>
+          <%= form.text_field field, style: input_style %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div style="margin-bottom:20px;">
+      <%= form.label :is_active, style: "font-weight:600; color:#361134;" %><br>
+      <%= form.check_box :is_active %>
+    </div>
+
+    <%= form.submit "Save Product",
+      style: "
+        background:#EA3788;
+        color:white;
+        padding:12px 26px;
+        border:none;
+        border-radius:999px;
+        font-weight:600;
+        cursor:pointer;
+      " %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.textarea :description %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :stock, style: "display: block" %>
-    <%= form.number_field :stock %>
-  </div>
-
-  <div>
-    <%= form.label :is_active, style: "display: block" %>
-    <%= form.checkbox :is_active %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>

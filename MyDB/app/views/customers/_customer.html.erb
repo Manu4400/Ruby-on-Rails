@@ -1,12 +1,58 @@
-<div id="<%= dom_id customer %>" class="customer-card">
-  <div style="margin-bottom:0.5rem">
-    <strong>Name:</strong>
-    <div><%= customer.name %></div>
+<div id="<%= dom_id customer %>" style="
+  background:#FFFFFF;
+  border-radius:14px;
+  box-shadow:0 8px 22px rgba(15,23,42,0.08);
+  padding:20px 24px;
+  max-width:640px;
+  margin-bottom:24px;
+">
+
+  
+  <div style="margin-bottom:16px;">
+    <label style="
+      display:block;
+      font-size:14px;
+      font-weight:600;
+      color:#0f172a;
+      margin-bottom:6px;
+    ">
+      Name
+    </label>
+
+    <div style="
+      border:1px solid #cbd5e1;
+      border-radius:8px;
+      padding:10px 12px;
+      font-size:15px;
+      color:#111827;
+      background:#ffffff;
+    ">
+      <%= customer.name %>
+    </div>
   </div>
 
+
   <div>
-    <strong>Email:</strong>
-    <div class="meta"><%= mail_to customer.email %></div>
+    <label style="
+      display:block;
+      font-size:14px;
+      font-weight:600;
+      color:#0f172a;
+      margin-bottom:6px;
+    ">
+      Email
+    </label>
+
+    <div style="
+      border:1px solid #cbd5e1;
+      border-radius:8px;
+      padding:10px 12px;
+      font-size:15px;
+      background:#ffffff;
+    ">
+      <%= mail_to customer.email, customer.email,
+        style: "color:#2563eb; text-decoration:none;" %>
+    </div>
   </div>
 
 </div>

@@ -1,11 +1,19 @@
-<% content_for :title, "New customer" %>
+<div style="
+  max-width:1200px;
+  margin:0 auto;
+  padding:40px 20px 80px;
+  font-family: Inter, system-ui, sans-serif;
+">
 
-<div class="container">
-  <h1 class="page-title">New customer</h1>
+  <h1 style="
+    font-size:28px;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:28px;
+  ">
+    New customer
+  </h1>
 
   <%= render "form", customer: @customer %>
 
-  <div style="margin-top:1rem">
-    <%= link_to "Back to customers", customers_path, class: "btn btn-ghost" %>
-  </div>
 </div>
