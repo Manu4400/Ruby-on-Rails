@@ -1,98 +1,57 @@
-<div style="
- width:100%;
-box-sizing:border-box;
+<% content_for :title, "Edit Product" %>
 
+<div style="
+  max-width:520px;
+  margin:80px auto;
+  padding:32px;
   background:#ffffff;
   border-radius:20px;
-  padding:24px;
   box-shadow:0 12px 30px rgba(54,17,52,0.15);
-  position:relative;
+  box-sizing:border-box;
+">
+
+  <h1 style="
+    text-align:center;
+    color:#361134;
+    margin-bottom:28px;
+  ">
+    Edit Product
+  </h1>
+
+  <%= render "form", product: @product %>
+
+
+<div style="
+  margin-top:26px;
+  display:flex;
+  justify-content:center;
+  gap:16px;
 ">
 
 
-  <% if product.is_active %>
-    <div style="
-      position:absolute;
-      top:18px;
-      right:18px;
-      background:#e6f7ec;
-      color:#15803d;
-      padding:6px 14px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:600;
-      display:flex;
-      align-items:center;
-      gap:6px;
-    ">
-      ✔ Active
-    </div>
-  <% else %>
-    <div style="
-      position:absolute;
-      top:18px;
-      right:18px;
-      background:#f3f4f6;
-      color:#6b7280;
-      padding:6px 14px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:600;
-      display:flex;
-      align-items:center;
-      gap:6px;
-    ">
-      ✖ Inactive
-    </div>
-  <% end %>
+  <%= link_to "View Product", @product, style: "
+    padding:10px 22px;
+    border-radius:999px;
+    background:#ffffff;
+    color:#EA3788;
+    border:2px solid #EA3788;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 4px 12px rgba(234,55,136,0.2);
+  " %>
 
 
-  <h2 style="
-    color:#361134;
-    margin-bottom:8px;
-    font-size:20px;
-  ">
-    <%= product.name %>
-  </h2>
+  <%= link_to "Back to Products", products_path, style: "
+    padding:10px 22px;
+    border-radius:999px;
+    background:#361134;
+    color:#ffffff;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 4px 14px rgba(54,17,52,0.3);
+  " %>
 
+</div>
 
-  <p style="color:#4b5563; margin-bottom:18px;">
-    <%= product.description %>
-  </p>
-
-
-  <% unless local_assigns[:hide_actions] %>
-    <div style="display:flex; gap:10px;">
-      <%= link_to "View", product, style: "
-        background:#B0228C;
-        color:white;
-        padding:8px 18px;
-        border-radius:999px;
-        text-decoration:none;
-        font-size:14px;
-      " %>
-
-      <%= link_to "Edit", edit_product_path(product), style: "
-        background:#EA3788;
-        color:white;
-        padding:8px 18px;
-        border-radius:999px;
-        text-decoration:none;
-        font-size:14px;
-      " %>
-
-      <%= button_to "Delete", product,
-        method: :delete,
-        data: { confirm: 'Are you sure?' },
-        style: "
-          background:#361134;
-          color:white;
-          padding:8px 18px;
-          border-radius:999px;
-          border:none;
-          font-size:14px;
-        " %>
-    </div>
-  <% end %>
 
 </div>
