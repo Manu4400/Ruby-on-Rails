@@ -1,23 +1,50 @@
-<div style="max-width:700px; margin:60px auto; padding:0 20px;">
+<div style="
+  max-width:700px;
+  margin:80px auto;
+  padding:0 20px;
+  font-family: Inter, system-ui, sans-serif;
+">
 
-  <!-- Render card WITHOUT buttons -->
-  <%= render @product, hide_actions: true %>
 
-  <!-- Page-level actions -->
-  <div style="margin-top:26px; display:flex; gap:14px; justify-content:center;">
+  <div style="display:flex; justify-content:center;">
+    <%= render @product, hide_actions: true %>
+  </div>
+
+
+  <div style="
+    margin-top:32px;
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    align-items:center;
+  ">
+
     <%= link_to "Edit",
       edit_product_path(@product),
       style: "
         background:#E56B70;
-        color:white;
-        padding:10px 22px;
+        color:#ffffff;
+        padding:12px 26px;
         border-radius:999px;
         text-decoration:none;
+        font-weight:600;
+        box-shadow:0 6px 14px rgba(229,107,112,0.35);
       " %>
 
+   
     <%= link_to "Back",
       products_path,
-      style: "color:#361134; font-weight:600;" %>
+      style: "
+        background:#ffffff;
+        color:#361134;
+        padding:12px 26px;
+        border-radius:999px;
+        text-decoration:none;
+        font-weight:600;
+        border:2px solid #361134;
+        box-shadow:0 4px 12px rgba(54,17,52,0.15);
+      " %>
+
 
     <%= button_to "Delete",
       @product,
@@ -25,11 +52,14 @@
       data: { confirm: "Are you sure?" },
       style: "
         background:#361134;
-        color:white;
-        padding:10px 22px;
+        color:#ffffff;
+        padding:12px 26px;
         border-radius:999px;
         border:none;
+        font-weight:600;
+        box-shadow:0 6px 16px rgba(54,17,52,0.4);
       " %>
+
   </div>
 
 </div>

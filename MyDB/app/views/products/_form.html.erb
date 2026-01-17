@@ -1,61 +1,77 @@
-<% input_style = "
-  width:100%;
-  padding:12px;
-  border-radius:8px;
-  border:1px solid #E56B70;
-  font-size:14px;
-" %>
+<%= form_with model: product do |f| %>
 
-<%= form_with(model: product) do |form| %>
-
-  <% if product.errors.any? %>
-    <div style="background:#F391A0; padding:14px; border-radius:8px; margin-bottom:20px;">
-      <strong style="color:#361134;">
-        <%= pluralize(product.errors.count, 'error') %> prohibited this product from being saved:
-      </strong>
-      <ul>
-        <% product.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div style="
-    background:#fff;
-    padding:28px;
-    border-radius:16px;
-    box-shadow:0 8px 24px rgba(54,17,52,0.15);
-  ">
-
-    <% [:name, :description, :price, :stock].each do |field| %>
-      <div style="margin-bottom:18px;">
-        <%= form.label field,
-          style: 'display:block; font-weight:600; color:#361134; margin-bottom:6px;' %>
-
-        <% if field == :description %>
-          <%= form.textarea field, rows: 3, style: input_style %>
-        <% else %>
-          <%= form.text_field field, style: input_style %>
-        <% end %>
-      </div>
-    <% end %>
-
-    <div style="margin-bottom:20px;">
-      <%= form.label :is_active, style: "font-weight:600; color:#361134;" %><br>
-      <%= form.check_box :is_active %>
-    </div>
-
-    <%= form.submit "Save Product",
-      style: "
-        background:#EA3788;
-        color:white;
-        padding:12px 26px;
-        border:none;
-        border-radius:999px;
-        font-weight:600;
-        cursor:pointer;
-      " %>
+  <div style="margin-bottom:18px;">
+    <label style="font-weight:600; color:#361134;">Name</label>
+    <%= f.text_field :name, style: "
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1.5px solid #f87171;
+      box-sizing:border-box;
+      outline:none;
+    " %>
   </div>
+
+ 
+  <div style="margin-bottom:18px;">
+    <label style="font-weight:600; color:#361134;">Description</label>
+    <%= f.text_area :description, rows: 4, style: "
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1.5px solid #f87171;
+      box-sizing:border-box;
+      resize:vertical;
+      outline:none;
+    " %>
+  </div>
+
+ 
+  <div style="margin-bottom:18px;">
+    <label style="font-weight:600; color:#361134;">Price</label>
+    <%= f.number_field :price, style: "
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1.5px solid #f87171;
+      box-sizing:border-box;
+      outline:none;
+    " %>
+  </div>
+
+
+  <div style="margin-bottom:18px;">
+    <label style="font-weight:600; color:#361134;">Stock</label>
+    <%= f.number_field :stock, style: "
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1.5px solid #f87171;
+      box-sizing:border-box;
+      outline:none;
+    " %>
+  </div>
+
+
+  <div style="margin-bottom:24px; display:flex; align-items:center; gap:10px;">
+    <%= f.check_box :is_active %>
+    <label style="font-weight:600; color:#361134;">Is active</label>
+  </div>
+
+
+ <div style="text-align:center;">
+  <%= f.submit(
+    product.persisted? ? "Update Product" : "Create Product",
+    style: "
+      background:#EA3788;
+      color:white;
+      padding:12px 28px;
+      border-radius:999px;
+      border:none;
+      font-weight:600;
+      cursor:pointer;
+    "
+  ) %>
+</div>
 
 <% end %>
