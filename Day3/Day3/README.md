@@ -4,60 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>DAY 3 – Rails Project Configuration Guide</title>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f9fafb;
-      color: #111827;
-      line-height: 1.6;
-      padding: 40px;
-    }
-    h1, h2, h3 {
-      color: #1f2937;
-    }
-    h1 {
-      border-bottom: 3px solid #2563eb;
-      padding-bottom: 10px;
-    }
-    code {
-      background: #e5e7eb;
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-    pre {
-      background: #111827;
-      color: #e5e7eb;
-      padding: 16px;
-      border-radius: 8px;
-      overflow-x: auto;
-    }
-    section {
-      background: #ffffff;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      margin-bottom: 32px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 16px;
-    }
-    th, td {
-      border: 1px solid #d1d5db;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background: #2563eb;
-      color: white;
-    }
-    img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-top: 12px;
-    }
-  </style>
+ 
 </head>
 <body>
 
