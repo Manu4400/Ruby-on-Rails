@@ -90,6 +90,8 @@
 <section>
   <h2>Skip JBuilder</h2>
   <pre>rails new myapp --skip-jbuilder</pre>
+  <img src="<img width="1071" height="649" alt="Screenshot 2026-01-14 232522" src="https://github.com/user-attachments/assets/c444645f-5b8d-41cf-85b1-890a9a458325" alt="Skip JBuilder"/>
+" alt="Skip JBuilder">
 </section>
 
 <section>
