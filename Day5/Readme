@@ -1,0 +1,149 @@
+# Ruby Basics – Concepts & Examples
+
+This file explains basic Ruby concepts with simple examples.
+These fundamentals are widely used in Ruby on Rails applications.
+
+---
+
+## String Object ID & Immutability
+
+- Strings are objects in Ruby
+- Modifying a string creates a new object
+
+```ruby
+name = "Manu"
+puts name.object_id
+
+name = name + "MR"
+puts name.object_id
+```
+
+---
+
+## Data Types in Ruby
+
+```ruby
+a = 10          # Integer
+b = true        # Boolean
+c = 10.5        # Float
+d = [1,2,3]     # Array
+e = { name: "Manu", age: 24 }  # Hash
+```
+
+Use `.class` to identify the data type.
+
+---
+
+## User Input
+
+```ruby
+puts "Enter your name:"
+name = gets.chomp
+puts "Hello, #{name}"
+```
+
+- `gets` reads input
+- `chomp` removes newline
+
+---
+
+## Class & Object
+
+```ruby
+class Student
+  attr_accessor :name, :age
+
+  def display
+    puts "Name: #{name}, Age: #{age}"
+  end
+end
+```
+
+---
+
+## Creating Objects
+
+```ruby
+student = Student.new
+student.name = "Manu"
+student.age = 21
+student.display
+```
+
+---
+
+## Multiple Objects Using Array
+
+```ruby
+students = []
+
+3.times do
+  s = Student.new
+  s.name = "Ramu"
+  s.age = 12
+  students << s
+end
+
+students.each(&:display)
+```
+
+---
+
+## Variables & Comments
+
+```ruby
+name = "Rahul"
+id = 125
+flag = true
+```
+
+Comments start with `#`.
+
+---
+
+## String Interpolation & Casting
+
+```ruby
+num = 100
+puts "#{name} id : #{num}"
+puts name + num.to_s
+```
+
+---
+
+## Methods
+
+```ruby
+def multiply(a, b)
+  a * b
+end
+```
+
+---
+
+## Array Input
+
+```ruby
+arr = []
+5.times do
+  arr << gets.chomp.to_i
+end
+```
+
+---
+
+## Symbols
+
+```ruby
+sym = :name
+puts sym.class
+```
+
+---
+
+## Summary
+
+- Everything in Ruby is an object
+- Strings are immutable
+- Classes and objects form the foundation
+
