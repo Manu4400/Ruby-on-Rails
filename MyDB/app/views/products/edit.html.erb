@@ -1,57 +1,16 @@
 <% content_for :title, "Edit Product" %>
 
 <div style="
-  max-width:520px;
-  margin:80px auto;
-  padding:32px;
-  background:#ffffff;
-  border-radius:20px;
-  box-shadow:0 12px 30px rgba(54,17,52,0.15);
-  box-sizing:border-box;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+  font-family: Arial, sans-serif;
 ">
 
-  <h1 style="
-    text-align:center;
-    color:#361134;
-    margin-bottom:28px;
-  ">
-    Edit Product
-  </h1>
-
+  <h2>Edit Product</h2>
   <%= render "form", product: @product %>
-
-
-<div style="
-  margin-top:26px;
-  display:flex;
-  justify-content:center;
-  gap:16px;
-">
-
-
-  <%= link_to "View Product", @product, style: "
-    padding:10px 22px;
-    border-radius:999px;
-    background:#ffffff;
-    color:#EA3788;
-    border:2px solid #EA3788;
-    text-decoration:none;
-    font-weight:600;
-    box-shadow:0 4px 12px rgba(234,55,136,0.2);
-  " %>
-
-
-  <%= link_to "Back to Products", products_path, style: "
-    padding:10px 22px;
-    border-radius:999px;
-    background:#361134;
-    color:#ffffff;
-    text-decoration:none;
-    font-weight:600;
-    box-shadow:0 4px 14px rgba(54,17,52,0.3);
-  " %>
-
-</div>
-
 
 </div>

@@ -1,21 +1,16 @@
+<% content_for :title, "New Product" %>
+
 <div style="
-  max-width:520px;
-  margin:80px auto;
-  padding:32px;
-  background:#ffffff;
-  border-radius:20px;
-  box-shadow:0 12px 30px rgba(54,17,52,0.15);
-  box-sizing:border-box;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+  font-family: Arial, sans-serif;
 ">
 
-  <h1 style="
-    text-align:center;
-    color:#361134;
-    margin-bottom:28px;
-  ">
-    New Product
-  </h1>
-
+  <h2>New Product</h2>
   <%= render "form", product: @product %>
 
 </div>

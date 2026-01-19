@@ -1,98 +1,34 @@
 <div style="
- width:100%;
-box-sizing:border-box;
-
-  background:#ffffff;
-  border-radius:20px;
-  padding:24px;
-  box-shadow:0 12px 30px rgba(54,17,52,0.15);
-  position:relative;
+  padding: 18px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 ">
 
+  <div style="display: flex; justify-content: space-between;">
+    <strong style="font-size: 16px;"><%= product.name %></strong>
 
-  <% if product.is_active %>
-    <div style="
-      position:absolute;
-      top:18px;
-      right:18px;
-      background:#e6f7ec;
-      color:#15803d;
-      padding:6px 14px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:600;
-      display:flex;
-      align-items:center;
-      gap:6px;
-    ">
-      ✔ Active
-    </div>
-  <% else %>
-    <div style="
-      position:absolute;
-      top:18px;
-      right:18px;
-      background:#f3f4f6;
-      color:#6b7280;
-      padding:6px 14px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:600;
-      display:flex;
-      align-items:center;
-      gap:6px;
-    ">
-      ✖ Inactive
-    </div>
-  <% end %>
+    <span style="color: <%= product.is_active ? 'green' : 'red' %>;">
+      <%= product.is_active ? "Active" : "Inactive" %>
+    </span>
+  </div>
 
-
-  <h2 style="
-    color:#361134;
-    margin-bottom:8px;
-    font-size:20px;
-  ">
-    <%= product.name %>
-  </h2>
-
-
-  <p style="color:#4b5563; margin-bottom:18px;">
+  <p style="margin: 6px 0; color: #555;">
     <%= product.description %>
   </p>
 
+  <p style="margin: 6px 0;">
+    ₹ <%= product.price %><br>
+    Stock: <%= product.stock %>
+  </p>
 
-  <% unless local_assigns[:hide_actions] %>
-    <div style="display:flex; gap:10px;">
-      <%= link_to "View", product, style: "
-        background:#B0228C;
-        color:white;
-        padding:8px 18px;
-        border-radius:999px;
-        text-decoration:none;
-        font-size:14px;
-      " %>
-
-      <%= link_to "Edit", edit_product_path(product), style: "
-        background:#EA3788;
-        color:white;
-        padding:8px 18px;
-        border-radius:999px;
-        text-decoration:none;
-        font-size:14px;
-      " %>
-
-      <%= button_to "Delete", product,
-        method: :delete,
-        data: { confirm: 'Are you sure?' },
-        style: "
-          background:#361134;
-          color:white;
-          padding:8px 18px;
-          border-radius:999px;
-          border:none;
-          font-size:14px;
-        " %>
-    </div>
-  <% end %>
+  <p style="margin-top: 8px;">
+    <%= link_to "View", product %> |
+    <%= link_to "Edit", edit_product_path(product) %> |
+    <%= link_to "Delete", product,
+          method: :delete,
+          data: { confirm: "Are you sure?" },
+          style: "color:red;" %>
+  </p>
 
 </div>
