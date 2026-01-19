@@ -1,3 +1,4 @@
+
 <% content_for :title, @product.name %>
 
 <div style="
@@ -16,6 +17,7 @@
     <span style="color: <%= @product.is_active ? 'green' : 'red' %>;">
       <%= @product.is_active ? "Active" : "Inactive" %>
     </span>
+
   </div>
 
   <p style="color: #555;"><%= @product.description %></p>
