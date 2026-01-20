@@ -1,6 +1,6 @@
-# Fixed seeds.rb
 
-Product.create!([
+
+Product.create([
   {
     name: "Sample Product",
     description: "This is a seeded product",
@@ -17,9 +17,9 @@ Product.create!([
   }
 ])
 
-# Additional sample products using faker gem
+
 10.times do
-  Product.create!(
+  Product.create(
     name: Faker::Commerce.product_name,
     description: "This sample product is generated using the faker gem",
     price: Faker::Commerce.price(range: 1000..10000),
