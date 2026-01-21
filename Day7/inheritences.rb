@@ -121,5 +121,20 @@
 # b.add
 
 
-num = 0;
-puts num.respond_to? :==
+# num = 0;
+# puts num.respond_to? :==
+
+class Base
+end
+
+class Test
+    private
+    def secret
+    end
+end
+
+t = Test.new
+puts t.respond_to?(:secret, true)
+
+# b = Base.new
+# puts b.respond_to?(:puts, false)
