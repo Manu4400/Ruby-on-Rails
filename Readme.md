@@ -1,0 +1,223 @@
+
+
+<h1>DaySprings – Ruby on Rails</h1>
+
+<hr>
+
+<h2>Day 1 – Ruby & Rails Basics</h2>
+
+<p><b>Ruby</b></p>
+<p>• Dynamically typed, open-source language</p>
+<p>• Everything in Ruby is an object</p>
+<p>• Latest version: Ruby 3.x</p>
+<p>• Follows SOLID principles (except Interface Segregation)</p>
+
+<p><b>Rails</b></p>
+<p>• Web framework built using Ruby</p>
+<p>• Latest version: Rails 8.x</p>
+
+<p><b>Important Points</b></p>
+<p>• Version management: RVM / RBENV</p>
+<p>• Install Rails: <code>gem install rails</code></p>
+<p>• Rails provides MVC structure and boilerplate code</p>
+
+<p><b>Create Rails Project</b></p>
+<p>• rails new project_name</p>
+<p>• rails new project_name --api</p>
+<p>• rails generate scaffold</p>
+
+<hr>
+
+<h2>Day 2 – Database & Scaffold</h2>
+
+<p><b>Database Commands</b></p>
+<p>• rails db:create</p>
+<p>• rails db:migrate</p>
+<p>• rails db:seed</p>
+
+<p><b>Scaffold</b></p>
+<p>• Generates model, controller, views, routes</p>
+<p>• rails generate scaffold Customer name:string email:string</p>
+
+<p><b>database.yml</b></p>
+<p>• Stores database configuration</p>
+<p>• Incorrect values cause database errors</p>
+
+<p><b>Rails Console</b></p>
+<p>• rails console</p>
+
+<hr>
+
+<h2>Day 3 – Rails Concepts & Structure</h2>
+
+<p>• Syntactic Sugar</p>
+<p>• Convention over Configuration</p>
+<p>• Model → singular</p>
+<p>• Controller → plural</p>
+
+<p><b>config Folder</b></p>
+<p>• database.yml</p>
+<p>• routes.rb</p>
+<p>• application.rb</p>
+<p>• environment.rb</p>
+<p>• environments (development, test, production)</p>
+
+<p><b>db Folder</b></p>
+<p>• migrate/</p>
+<p>• schema.rb</p>
+<p>• seeds.rb</p>
+
+<hr>
+
+<h2>Day 4 – app Folder & Ruby Basics</h2>
+
+<p><b>app Folder</b></p>
+<p>• controllers</p>
+<p>• models</p>
+<p>• views</p>
+<p>• javascript</p>
+<p>• mailers</p>
+<p>• jobs</p>
+
+<p><b>Best Practice</b></p>
+<p>• Thin Controllers</p>
+<p>• Thick Models</p>
+
+<p><b>Data Types</b></p>
+<p>• String</p>
+<p>• Integer</p>
+<p>• Float</p>
+<p>• Symbol</p>
+<p>• Boolean</p>
+<p>• nil</p>
+
+<p><b>Variables</b></p>
+<p>• Local</p>
+<p>• Global ($)</p>
+<p>• Instance (@)</p>
+<p>• Class (@@)</p>
+<p>• Constant (UPPERCASE)</p>
+
+<hr>
+
+<h2>Day 5 – Methods & Type Casting</h2>
+
+<p>• Methods return last expression automatically</p>
+<p>• Use <code>return</code> only when required</p>
+
+<p><b>Comments</b></p>
+<p>• Single line: #</p>
+<p>• Multi-line: =begin =end</p>
+
+<p><b>Type Casting</b></p>
+<p>• to_i</p>
+<p>• to_s</p>
+<p>• to_f</p>
+
+<hr>
+
+<h2>Day 6 – Loops & Collection Methods</h2>
+
+<p><b>Loops</b></p>
+<p>• for</p>
+<p>• while</p>
+<p>• loop do</p>
+<p>• until</p>
+
+<p><b>Collection Methods</b></p>
+<p>• each</p>
+<p>• select</p>
+<p>• reject</p>
+<p>• map / collect</p>
+
+<p>• Methods do not modify arrays by default</p>
+<p>• Use <code>!</code> to modify arrays</p>
+<p>• Boolean methods end with <code>?</code></p>
+
+<pre>
+Product.where(is_active: true).limit(10)
+</pre>
+
+<hr>
+
+<h2>Day 7 – Classes, Inheritance & Naming</h2>
+
+<p><b>Class Naming</b></p>
+<p>• Class names use CamelCase</p>
+<p>• First letter must be capital</p>
+
+<pre>
+class CustomController
+end
+</pre>
+
+<p><b>Method Naming</b></p>
+<p>• Method and variable names use snake_case</p>
+
+<pre>
+def limit_active
+end
+</pre>
+
+<p><b>Inheritance</b></p>
+<p>• Ruby supports single inheritance</p>
+<p>• super is used to call parent methods</p>
+
+<p><b>Method Lookup Order</b></p>
+<p>• Child → Parent → Object → Kernel → BasicObject</p>
+
+<pre>
+"Sample".respond_to?(:upcase)
+</pre>
+
+<hr>
+
+<h2>Day 8 – Conditional Statements & Access Modifiers</h2>
+
+<p><b>Conditional Statements</b></p>
+<p>• if / elsif / else</p>
+<p>• unless</p>
+<p>• Ternary operator (? :)</p>
+<p>• case</p>
+
+<p><b>Access Modifiers</b></p>
+<p>• Public – accessible everywhere</p>
+<p>• Private – accessible only inside the class</p>
+<p>• Protected – accessible in class and subclasses</p>
+
+<p>• Private methods cannot be called directly</p>
+<p>• Can be accessed indirectly using public methods</p>
+
+<hr>
+
+<h2>Day 9 – Validations & Rails Features</h2>
+
+<p>• Email validation available from Rails 6+</p>
+<p>• Encryption / Decryption introduced in Rails 7+</p>
+
+<p><b>Inbuilt Validations</b></p>
+
+<pre>
+validates :email, presence: true
+validates :email, uniqueness: true
+</pre>
+
+<p><b>Custom Validation</b></p>
+
+<pre>
+validate :check_price
+
+def check_price
+  errors.add(:stock, "Stock not available") if stock == 0
+end
+</pre>
+
+<hr>
+
+<h3>Summary</h3>
+<p>• Ruby is object-oriented</p>
+<p>• Rails follows MVC</p>
+<p>• Convention over Configuration reduces code</p>
+<p>• Used daily in real Rails projects</p>
+
+
