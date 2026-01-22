@@ -1,0 +1,61 @@
+<h2>Notes</h2>
+<ul>
+  <li>Email validation is available as an inbuilt feature from <b>Rails 6</b></li>
+  <li>Encryption and decryption features are available from <b>Rails 7</b></li>
+  <li>Encrypt and decrypt methods are usually called inside Rails models</li>
+</ul>
+
+<hr>
+
+<h2>Validators</h2>
+
+<p>Validations can be implemented in two ways:</p>
+<ul>
+  <li>Frontend validation using HTML</li>
+  <li>Backend validation using Rails model methods</li>
+</ul>
+
+<h3>Types of Validations</h3>
+
+<h4>1. Inbuilt Validations</h4>
+<p>
+Rails provides inbuilt validation helpers that are written directly inside models
+to ensure only valid data is saved.
+</p>
+
+<pre>
+validates :email, presence: true
+validates :email, uniqueness: true
+validates :name, format: {
+  with: /\A[a-zA-Z]+\z/,
+  message: "Only letters are allowed"
+}
+</pre>
+
+<h4>2. Custom Validations</h4>
+<p>
+Custom validations are written as methods based on business logic and are called
+explicitly.
+</p>
+
+<pre>
+def check_price
+  if stock == 0 && price > 0
+    errors.add(:stock, "Stock is not available")
+  end
+end
+</pre>
+
+<p>Calling the custom validation method:</p>
+
+<pre>
+validate :check_price
+</pre>
+
+<hr>
+
+<h3>Important Notes</h3>
+<ul>
+  <li><b>validates</b> → used for inbuilt validations</li>
+  <li><b>validate</b> → used to call custom validation methods</li>
+</ul>
