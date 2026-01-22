@@ -7,6 +7,10 @@
 ">
 
   <%= form_with(model: customer, local: true) do |f| %>
+  <%# # it one way of write form control
+  <%= form%>  
+  <%# # form_for 
+   # simple_form %>
 
     
     <div style="margin-bottom:22px;">
@@ -16,10 +20,10 @@
         display:block;
         margin-bottom:8px;
       ">
-        Name
+        Name 
       </label>
 
-      <%= f.text_field :name,
+      <%= f.text_field :name, 
         placeholder: "Full name",
         style: "
           width:100%;
@@ -28,7 +32,7 @@
           border:1px solid #CBD5E1;
           font-size:15px;
           outline:none;
-        "
+        " , minlength: 4,maxlength: 10
       %>
     </div>
 
@@ -43,8 +47,8 @@
         Email
       </label>
 
-      <%= f.email_field :email,
-        placeholder: "email@example.com",
+      <%= f.email_field :email, 
+        placeholder: "email@example.com", 
         style: "
           width:100%;
           padding:12px 14px;
@@ -52,7 +56,7 @@
           border:1px solid #CBD5E1;
           font-size:15px;
           outline:none;
-        "
+        " 
       %>
     </div>
 
