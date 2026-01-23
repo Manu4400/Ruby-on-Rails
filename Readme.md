@@ -213,11 +213,48 @@ end
 </pre>
 
 <hr>
+<h2>Day 10</h2>
+<h2>Scopes</h2>
 
-<h3>Summary</h3>
-<p>• Ruby is object-oriented</p>
-<p>• Rails follows MVC</p>
-<p>• Convention over Configuration reduces code</p>
-<p>• Used daily in real Rails projects</p>
+<p>Scopes are reusable database queries in Rails.</p>
+
+<p><b>Types</b></p>
+<p>• Non-parameterized scope</p>
+<pre>scope :out_of_stock, -> { where("stock <= ?", 0) }</pre>
+
+<p>• Parameterized scope</p>
+<pre>scope :blacklisted_customers, ->(ids) { where(id: ids) }</pre>
+
+<hr>
+
+<h2>Assignment</h2>
+
+<p><b>Customers – Blacklisted</b></p>
+<p>1. Route → blacklisted_customers</p>
+<p>2. Scope → blacklisted_customers</p>
+<p>3. Controller → fetch blocked customers</p>
+<p>4. View → display customers</p>
+
+<pre>
+@customers = Customer.blacklisted_customers([1,5,6])
+</pre>
+
+<hr>
+
+<p><b>Products – Out of Stock</b></p>
+<p>1. Route → out_of_stock</p>
+<p>2. Scope → out_of_stock</p>
+<p>3. Controller → fetch products</p>
+<p>4. View → display products</p>
+
+<pre>
+@products = Product.out_of_stock
+</pre>
+
+<hr>
+
+<p><b>Note</b></p>
+<p>• Instance variable names must match in controller and view</p>
+<p>• Use @customers and @products correctly</p>
 
 
