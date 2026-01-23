@@ -74,21 +74,21 @@ class Product < ApplicationRecord
 
 # write custom validation only if is_active is true then only we have to add price
 
-def check_is_active_for_price
-  if (!is_active  && price <= 0) 
-    errors.add "Maker is_active as checked and enter the price "
-  end
+# def check_is_active_for_price
+#   if (!is_active  && price <= 0) 
+#     errors.add "Maker is_active as checked and enter the price "
+#   end
 
-end
+# end
 # write custom validation only if is_active is true
 
 
-def check_is_active
-  if is_active != true
-    errors.add "Make sure is active is checked"
-  end
+# def check_is_active
+#   if is_active != true
+#     errors.add "Make sure is active is checked"
+#   end
 
-end
+# end
 # description must contain only letters, numbers, and spaces
   # validates :description, format: { 
   #   with: /\A[a-zA-Z0-9\s]+\z/, 
@@ -97,6 +97,28 @@ end
 
   # use inbuilt validation only if it is check use acceptances method that should be true
   
+
+# 23 -01 - 2026 ----> scope
+scope :out_of_stock, -> { where("stock <= ?", 0) }
+
+# scope :test_scope_for_joins{joins(name_of_the_table.where)}
+# scope :test_scope ,-> query{} # in the query we can write raw query 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -23,8 +23,15 @@ class Customer < ApplicationRecord
   #   end
   # end
 
- validates :email, profanity: true
-validates :name , profanity: true
+#  validates :email, profanity: true
+# validates :name , profanity: true
 
+
+#  scope :unquine_email, -> { distinct.where(email: "manoharmr1234@gmail.com").select(:email).distinct }
+#                                         #tableCulum: modelAttribute
+
+#    scope :blacklisted_customers, ->(customer_ids) { where(id: customer_ids) }
+
+scope :blacklisted_customers, ->(customer_ids) { where(id: customer_ids) }
 
 end
