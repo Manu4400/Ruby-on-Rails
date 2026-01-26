@@ -2,8 +2,8 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: %i[ show edit update destroy ]
 
   def blacklisted_customers
-      @list_blocked = [1,2,3,4,5]
-      @customers = Customer.blacklisted_customers(@list_blocked)
+      list_blocked = [1,2,3,4,5]
+      @customers = Customer.blacklisted_customers(list_blocked)
     end
 
   # GET /customers or /customers.json
