@@ -90,10 +90,10 @@ class Product < ApplicationRecord
 
 # end
 # description must contain only letters, numbers, and spaces
-  # validates :description, format: { 
-  #   with: /\A[a-zA-Z0-9\s]+\z/, 
-  #   message: "must not contain special characters" 
-  # }
+  validates :description, format: { 
+    with: /\A[a-zA-Z0-9\s]+\z/, 
+    message: "must not contain special characters" 
+  }
 
   # use inbuilt validation only if it is check use acceptances method that should be true
   
@@ -103,23 +103,5 @@ scope :out_of_stock, -> { where("stock <= ?", 0) }
 
 # scope :test_scope_for_joins{joins(name_of_the_table.where)}
 # scope :test_scope ,-> query{} # in the query we can write raw query 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 end
