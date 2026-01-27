@@ -16,18 +16,18 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_16_053311) do
 
   create_table "customers", force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.string "email" # use this profanity: true
-    t.string "name" # use this profanity: true 
+    t.string "email"
+    t.string "name"
     t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.text "description" # don't allow sepical character 
-    t.boolean "is_active" # use inbuilt validation only if it is check use acceptances method that should be true
-    t.string "name" # try for alphanumaeric value
-    t.decimal "price" # write custom validation only if is_active is true then only we have to add price
-    t.integer "stock" # write custom validation only if is_active is true
+    t.text "description"
+    t.boolean "is_active"
+    t.string "name"
+    t.decimal "price"
+    t.integer "stock"
     t.datetime "updated_at", null: false
   end
 
