@@ -133,8 +133,10 @@ Error: UnknownFormat
 
 <p>
 <b>Add column</b><br>
-<code>rails g migration AddExpireDate epire:date</code><br>
-<code>rails db:migrate</code>
+<code>rails g migration AddExpireToProduct epire:date</code><br><img width="1239" height="105" alt="Screenshot 2026-01-27 144105" src="https://github.com/user-attachments/assets/ba79770f-671a-4b22-9fda-285b2c631bc9" />
+
+<code>rails db:migrate</code><img width="1251" height="176" alt="Screenshot 2026-01-27 144120" src="https://github.com/user-attachments/assets/2923d6e7-f5b9-4d7e-840d-f564868e9122" />
+
 </p>
 
 <p>
