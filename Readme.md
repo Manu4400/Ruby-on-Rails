@@ -225,7 +225,7 @@ end
 <p>• Parameterized scope</p>
 <pre>scope :blacklisted_customers, ->(ids) { where(id: ids) }</pre>
 
-<hr>
+
 
 <h2>Assignment</h2>
 
@@ -239,7 +239,7 @@ end
 @customers = Customer.blacklisted_customers([1,5,6])
 </pre>
 
-<hr>
+
 
 <p><b>Products – Out of Stock</b></p>
 <p>1. Route → out_of_stock</p>
@@ -251,16 +251,16 @@ end
 @products = Product.out_of_stock
 </pre>
 
-<hr>
+
 
 <p><b>Note</b></p>
 <p>• Instance variable names must match in controller and view</p>
 <p>• Use @customers and @products correctly</p>
 
-<h1>Ruby on Rails – Core Overview</h1>
+
 
 <hr>
-
+<h2>Day 11</h2>
 <h2>Rails Components</h2>
 
 <p><b>Model</b></p>
@@ -296,7 +296,7 @@ end
 <p><b>File Upload</b></p>
 <p>• ActiveStorage – Upload images and files</p>
 
-<hr>
+
 
 <h2>Which Component Does What</h2>
 
@@ -308,7 +308,7 @@ end
 <p>• Background Jobs → ActiveJob</p>
 <p>• WebSockets → ActionCable</p>
 
-<hr>
+
 
 <h2>Rails Request Flow</h2>
 
@@ -316,7 +316,7 @@ end
 Browser → Routes → Controller → Model → View → Response
 </p>
 
-<hr>
+
 
 <h2>Routing & Controller Errors (Assignment)</h2>
 
