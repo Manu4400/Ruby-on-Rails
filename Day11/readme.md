@@ -133,7 +133,7 @@ Error: UnknownFormat
 
 <p>
 <b>Add column</b><br>
-<code>rails g migration AddMobToCustomers mob:bigint</code><br>
+<code>rails g migration AddExpireDate epire:date</code><br>
 <code>rails db:migrate</code>
 </p>
 
