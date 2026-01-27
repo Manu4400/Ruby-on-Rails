@@ -336,7 +336,7 @@ Browser → Routes → Controller → Model → View → Response
 
 <p><b>Add column</b></p>
 <pre>
-rails g migration AddMobToCustomers mob:bigint
+rails g migration AddExpireToProducts expire:date
 rails db:migrate
 </pre>
 
