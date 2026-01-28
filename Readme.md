@@ -345,3 +345,92 @@ rails db:migrate
 <p>• Controller and views are created</p>
 
 <hr>
+<h2>Day 12 – Practice Session</h2>
+<hr>
+
+<h2>Day 13 – Rails Tasks</h2>
+
+<p><b>1. Migrations</b></p>
+
+<p>Add Column</p>
+<pre>
+rails g migration AddPhoneToCustomers phone:integer
+rails db:migrate
+</pre>
+
+<p>Remove Column</p>
+<pre>
+rails g migration RemovePhoneFromCustomers phone:integer
+rails db:migrate
+</pre>
+
+<p>• Migration files are created in db/migrate</p>
+<p>• schema.rb updates automatically</p>
+
+<hr>
+
+<p><b>2. Action Text</b></p>
+
+<p>Install Action Text</p>
+<pre>
+rails action_text:install
+rails db:migrate
+</pre>
+
+<p>• Adds tables for rich text and file storage</p>
+
+<p>Use in Model</p>
+<pre>
+has_rich_text :about_me
+</pre>
+
+<p>Permit in Controller</p>
+<pre>
+params.require(:customer).permit(:name, :email, :about_me)
+</pre>
+
+<p>Use in View</p>
+<pre>
+&lt;%= form.rich_text_area :about_me %&gt;
+</pre>
+
+<hr>
+
+<p><b>3. Ruby Array Practice</b></p>
+
+<pre>
+a1 = [1,2,3,4]
+a2 = [2,4]
+</pre>
+
+<p>Common values</p>
+<pre>
+a1 & a2
+</pre>
+
+<p>Remove duplicates</p>
+<pre>
+a1 | a2
+</pre>
+
+<hr>
+
+<p><b>4. Params Debugging</b></p>
+
+<p>Check params in controller</p>
+<pre>
+raise params.inspect
+</pre>
+
+<p>Example Output</p>
+<pre>
+{"controller"=>"customers","action"=>"index"}
+</pre>
+
+<p>• index action has only route info</p>
+<p>• create/update actions have form data</p>
+
+<hr>
+
+
+
