@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
+  has_rich_text :about_me
 #  validates:email , presence:true
 #  validates :name, format: { with: /\A[a-zA-Z]+\z/, message: "Only letters are allowed" }
 

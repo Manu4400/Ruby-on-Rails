@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  has_rich_text :feedback
   # # inbuilt validations
 #  validates :stock, numericality: true
 # validates :stock, length: { minimum: 10, maximum: 20 }
@@ -90,10 +91,10 @@ class Product < ApplicationRecord
 
 # end
 # description must contain only letters, numbers, and spaces
-  validates :description, format: { 
-    with: /\A[a-zA-Z0-9\s]+\z/, 
-    message: "must not contain special characters" 
-  }
+  # validates :description, format: { 
+  #   with: /\A[a-zA-Z0-9\s]+\z/, 
+  #   message: "must not contain special characters" 
+  # }
 
   # use inbuilt validation only if it is check use acceptances method that should be true
   

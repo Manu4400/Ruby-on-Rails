@@ -13,7 +13,7 @@
     font-family: Inter, system-ui, sans-serif;
   ">
 
-    <!-- Page Title -->
+  
     <h1 style="
       text-align:center;
       font-size:30px;
@@ -24,7 +24,7 @@
       Customer Details
     </h1>
 
-    <!-- Card -->
+   
     <div style="
       background:#FFFFFF;
       border-radius:18px;
@@ -32,7 +32,7 @@
       padding:28px 32px;
     ">
 
-      <!-- Name -->
+      
       <div style="margin-bottom:22px;">
         <label style="
           display:block;
@@ -56,7 +56,7 @@
         </div>
       </div>
 
-      <!-- Email -->
+      
       <div style="margin-bottom:28px;">
         <label style="
           display:block;
@@ -80,8 +80,32 @@
             style: "color:#2563eb; text-decoration:none;" %>
         </div>
       </div>
+  <div style="margin-bottom:28px;">
+  <label style="
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    color:#6b7280;
+    margin-bottom:6px;
+  ">
+    About Me
+  </label>
 
-      <!-- Actions -->
+  <div style="
+    padding:14px 16px;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+    background:#f9fafb;
+    font-size:15px;
+    color:#111827;
+    line-height:1.6;
+    min-height:80px;
+  ">
+    <%= @customer.about_me.presence || "No description provided." %>
+  </div>
+</div>
+
+    
       <div style="
         display:flex;
         align-items:center;

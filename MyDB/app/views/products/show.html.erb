@@ -24,7 +24,8 @@
 
   <p>
     <strong>Price:</strong> ₹ <%= @product.price %><br>
-    <strong>Stock:</strong> <%= @product.stock %>
+    <strong>Stock:</strong> <%= @product.stock %><br>
+    <strong>Feedback:</strong> <%= @product.feedback.presence||"No FeedBack" %>
   </p>
 
   <hr>

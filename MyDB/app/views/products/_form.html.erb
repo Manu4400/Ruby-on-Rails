@@ -49,6 +49,19 @@
     " %>
   </div>
 
+    <div style="margin-bottom:18px;">
+    <label style="font-weight:600; color:#361134;">Feedback</label>
+    <%= f.rich_text_area :feedback, rows: 4, style: "
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1.5px solid #f87171;
+      box-sizing:border-box;
+      resize:vertical;
+      outline:none;
+    " %>
+  </div>
+
   <div style="margin-bottom:24px; display:flex; align-items:center; gap:10px;">
     <%= f.check_box :is_active %>
     <label style="font-weight:600; color:#361134;">Is active</label>

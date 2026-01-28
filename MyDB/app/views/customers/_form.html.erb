@@ -59,6 +59,28 @@
         " 
       %>
     </div>
+     <div style="margin-bottom:28px;">
+      <label style="
+        font-weight:600;
+        color:#1F2937;
+        display:block;
+        margin-bottom:8px;
+      ">
+        About Me
+      </label>
+
+      <%= f.rich_text_area :about_me, 
+        
+        style: "
+          width:100%;
+          padding:12px 14px;
+          border-radius:12px;
+          border:1px solid #CBD5E1;
+          font-size:15px;
+          outline:none;
+        " 
+      %>
+    </div>
 
   
     <%= f.submit(

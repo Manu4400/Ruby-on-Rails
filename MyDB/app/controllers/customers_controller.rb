@@ -15,15 +15,18 @@ class CustomersController < ApplicationController
 
   # GET /customers/1 or /customers/1.json
   def show
+    # raise params.inspect
   end
 
   # GET /customers/new
   def new
+    # raise params.inspect
     @customer = Customer.new
   end
 
   # GET /customers/1/edit
   def edit
+    # raise customer_params.inspect
   end
 
   # POST /customers or /customers.json
@@ -43,6 +46,7 @@ class CustomersController < ApplicationController
 
   # PATCH/PUT /customers/1 or /customers/1.json
   def update
+    # raise customer_params.inspect
     respond_to do |format|
       if @customer.update(customer_params)
         format.html { redirect_to @customer, notice: "Customer was successfully updated.", status: :see_other }
@@ -56,6 +60,7 @@ class CustomersController < ApplicationController
 
   # DELETE /customers/1 or /customers/1.json
   def destroy
+    
     @customer.destroy!
 
     respond_to do |format|
@@ -72,7 +77,7 @@ class CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.expect(customer: [ :name, :email ])
+      params.expect(customer: [ :name, :email ,:about_me])
     end
 
 
