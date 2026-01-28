@@ -225,7 +225,7 @@ end
 <p>• Parameterized scope</p>
 <pre>scope :blacklisted_customers, ->(ids) { where(id: ids) }</pre>
 
-<hr>
+
 
 <h2>Assignment</h2>
 
@@ -239,7 +239,7 @@ end
 @customers = Customer.blacklisted_customers([1,5,6])
 </pre>
 
-<hr>
+
 
 <p><b>Products – Out of Stock</b></p>
 <p>1. Route → out_of_stock</p>
@@ -251,10 +251,97 @@ end
 @products = Product.out_of_stock
 </pre>
 
-<hr>
+
 
 <p><b>Note</b></p>
 <p>• Instance variable names must match in controller and view</p>
 <p>• Use @customers and @products correctly</p>
 
 
+
+<hr>
+<h2>Day 11</h2>
+<h2>Rails Components</h2>
+
+<p><b>Model</b></p>
+<p>• ActiveModel – Validations and logic without database table</p>
+<p>• ActiveRecord – Connects database table with Ruby objects (CRUD)</p>
+
+<p><b>Controller</b></p>
+<p>• ActionController – Handles requests, params, redirects</p>
+
+<p><b>Views</b></p>
+<p>• ActionView – HTML pages, forms, helpers</p>
+<p>• ActionText – Rich text content</p>
+
+<p><b>Routes</b></p>
+<p>• ActionDispatch – Maps URL to controller action</p>
+
+<p><b>Controller + View</b></p>
+<p>• ActionPack – Connects controller and view</p>
+
+<p><b>Mails</b></p>
+<p>• ActionMailer – Send emails</p>
+<p>• ActionMailbox – Receive emails</p>
+
+<p><b>Inbuilt Helpers</b></p>
+<p>• ActiveSupport – Utility methods like present?, blank?</p>
+
+<p><b>Background Jobs</b></p>
+<p>• ActiveJob – Background processing (Sidekiq, Resque)</p>
+
+<p><b>WebSockets</b></p>
+<p>• ActionCable – Real-time features</p>
+
+<p><b>File Upload</b></p>
+<p>• ActiveStorage – Upload images and files</p>
+
+
+
+<h2>Which Component Does What</h2>
+
+<p>• CRUD → ActiveRecord</p>
+<p>• Validations → ActiveModel</p>
+<p>• Forms & Helpers → ActionView</p>
+<p>• Params → ActionController</p>
+<p>• Routes → ActionDispatch</p>
+<p>• Background Jobs → ActiveJob</p>
+<p>• WebSockets → ActionCable</p>
+
+
+
+<h2>Rails Request Flow</h2>
+
+<p>
+Browser → Routes → Controller → Model → View → Response
+</p>
+
+
+
+<h2>Routing & Controller Errors (Assignment)</h2>
+
+<p><b>Except route</b></p>
+<pre>resources :products, except: [:show]</pre>
+<p>• Error: No route matches GET /products/:id</p>
+
+<p><b>Delete show method</b></p>
+<p>• Error: ProductsController#show not found</p>
+
+<p><b>Delete show.html.erb</b></p>
+<p>• Error: ActionController::UnknownFormat</p>
+
+<p><b>Only route</b></p>
+<pre>resources :products, only: [:edit, :destroy]</pre>
+<p>• Only these routes will work</p>
+
+<p><b>Add column</b></p>
+<pre>
+rails g migration AddExpireToProducts expire:date
+rails db:migrate
+</pre>
+
+<p><b>Generate controller</b></p>
+<pre>rails g controller admin</pre>
+<p>• Controller and views are created</p>
+
+<hr>
