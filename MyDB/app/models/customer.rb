@@ -1,5 +1,7 @@
 class Customer < ApplicationRecord
   has_rich_text :about_me
+  has_one_attached :profile_photo
+  # validates :profile_photo, attached: true, content_type: ['image/png', 'image/jpeg'], size: { less_than: 2.megabytes, message: 'is too large' }
 #  validates:email , presence:true
 #  validates :name, format: { with: /\A[a-zA-Z]+\z/, message: "Only letters are allowed" }
 

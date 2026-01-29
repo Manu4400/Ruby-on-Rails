@@ -1,155 +1,96 @@
-<div style="
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#F7F9FC;
-">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9fafb;
+  }
 
-  <div style="
-    width:100%;
-    max-width:680px;
-    padding:24px;
-    font-family: Inter, system-ui, sans-serif;
-  ">
+  .container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+  }
 
-  
-    <h1 style="
-      text-align:center;
-      font-size:30px;
-      font-weight:800;
-      color:#0f172a;
-      margin-bottom:28px;
-    ">
-      Customer Details
-    </h1>
+  h1 {
+    margin-bottom: 20px;
+    color: #111827;
+  }
 
-   
-    <div style="
-      background:#FFFFFF;
-      border-radius:18px;
-      box-shadow:0 12px 30px rgba(15,23,42,0.08);
-      padding:28px 32px;
-    ">
+  p {
+    margin-bottom: 14px;
+    color: #374151;
+  }
 
-      
-      <div style="margin-bottom:22px;">
-        <label style="
-          display:block;
-          font-size:13px;
-          font-weight:600;
-          color:#6b7280;
-          margin-bottom:6px;
-        ">
-          Name
-        </label>
+  strong {
+    color: #111827;
+  }
 
-        <div style="
-          padding:12px 14px;
-          border-radius:10px;
-          border:1px solid #e5e7eb;
-          background:#f9fafb;
-          font-size:15px;
-          color:#111827;
-        ">
-          <%= @customer.name.presence || "—" %>
-        </div>
-      </div>
+  img {
+    margin-top: 8px;
+    border-radius: 6px;
+  }
 
-      
-      <div style="margin-bottom:28px;">
-        <label style="
-          display:block;
-          font-size:13px;
-          font-weight:600;
-          color:#6b7280;
-          margin-bottom:6px;
-        ">
-          Email
-        </label>
+  .actions a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: 500;
+  }
 
-        <div style="
-          padding:12px 14px;
-          border-radius:10px;
-          border:1px solid #e5e7eb;
-          background:#f9fafb;
-          font-size:15px;
-        ">
-          <%= mail_to @customer.email,
-            @customer.email,
-            style: "color:#2563eb; text-decoration:none;" %>
-        </div>
-      </div>
-  <div style="margin-bottom:28px;">
-  <label style="
-    display:block;
-    font-size:13px;
-    font-weight:600;
-    color:#6b7280;
-    margin-bottom:6px;
-  ">
-    About Me
-  </label>
+  .actions a.delete {
+    color: #dc2626;
+  }
 
-  <div style="
-    padding:14px 16px;
-    border-radius:12px;
-    border:1px solid #e5e7eb;
-    background:#f9fafb;
-    font-size:15px;
-    color:#111827;
-    line-height:1.6;
-    min-height:80px;
-  ">
-    <%= @customer.about_me.presence || "No description provided." %>
-  </div>
-</div>
+  hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #e5e7eb;
+  }
+</style>
 
-    
-      <div style="
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        border-top:1px solid #e5e7eb;
-        padding-top:18px;
-      ">
+<div class="container">
 
-        <div style="display:flex; gap:20px;">
-          <%= link_to "Edit",
-            edit_customer_path(@customer),
-            style: "
-              color:#84cc16;
-              font-weight:600;
-              text-decoration:none;
-            " %>
+  <h1>Customer Details</h1>
 
-          <%= link_to "Back",
-            customers_path,
-            style: "
-              color:#6b7280;
-              text-decoration:none;
-            " %>
-        </div>
+  <p>
+    <strong>Name:</strong><br>
+    <%= @customer.name.presence || "-" %>
+  </p>
 
-        <%= button_to "Delete",
-          @customer,
-          method: :delete,
-          data: { confirm: "Are you sure?" },
-          form: { style: "margin:0;" },
-          style: "
-            background:#ffffff;
-            color:#ef4444;
-            border:1px solid #fecaca;
-            padding:8px 18px;
-            border-radius:999px;
-            font-size:14px;
-            font-weight:600;
-            cursor:pointer;
-          "
-        %>
+  <p>
+    <strong>Email:</strong><br>
+    <%= mail_to @customer.email, @customer.email %>
+  </p>
 
-      </div>
+  <p>
+    <strong>About Me:</strong><br>
+    <%= @customer.about_me.present? ? @customer.about_me : "No description" %>
+  </p>
+  <p>
+    <strong>Date_of_birth:</strong><br>
+    <%= @customer.date_of_birth.present? ? @customer.date_of_birth : "No Date_of_birth" %>
+  </p>
 
-    </div>
-  </div>
+  <p>
+    <strong>Profile Photo:</strong><br>
+    <% if @customer.profile_photo.attached? %>
+      <%= image_tag @customer.profile_photo, width: 120 %>
+    <% else %>
+      No profile photo
+    <% end %>
+  </p>
+
+  <hr>
+
+  <div class="actions">
+    <%= link_to "Edit", edit_customer_path(@customer) %>
+    <%= link_to "Back", customers_path %>
+   <%= button_to "Delete", @customer,
+      method: :delete,
+      data: { confirm: "Are you sure?" },
+      class: "delete" %>
+
+
 </div>

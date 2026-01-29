@@ -1,20 +1,44 @@
 <% content_for :title, "Products" %>
 
-<div style="max-width: 1200px; margin: 40px auto; font-family: Arial, sans-serif;">
+<div style="max-width:1200px; margin:40px auto; font-family: Arial, sans-serif;">
 
-  <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+  <div style="display:flex; justify-content:space-between; margin-bottom:20px;">
     <h2>Products</h2>
     <%= link_to "New Product", new_product_path %>
   </div>
 
-
-  <div style="
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  ">
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
     <% @products.each do |product| %>
-      <%= render product %>
+
+      <div style="border:1px solid #e5e7eb; padding:16px; border-radius:8px; background:#fff;">
+
+       
+        <% if product.product_photos.attached? %>
+          <% product.product_photos.each do |image| %>
+            <%= image_tag image,
+                  width: 100,
+                  height: 100,
+                  style: "object-fit:cover; margin-bottom:6px;" %>
+          <% end %>
+        <% else %>
+          <p>No images attached</p>
+        <% end %>
+
+        <h3><%= product.name %></h3>
+        <p>₹ <%= product.price %></p>
+        <p> <%=  product.invoice.presence || "Invoie is not present"%></p>
+        
+
+        <p>
+          <%= link_to "View", product %> |
+          <%= link_to "Edit", edit_product_path(product) %> |
+          <%= button_to "Delete", product,
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+        </p>
+
+      </div>
+
     <% end %>
   </div>
 

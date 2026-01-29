@@ -1,85 +1,54 @@
 <%= form_with model: product, local: true do |f| %>
 
-  <div style="margin-bottom:18px;">
-    <label style="font-weight:600; color:#361134;">Name</label>
-    <%= f.text_field :name, style: "
-      width:100%;
-      padding:12px 14px;
-      border-radius:10px;
-      border:1.5px solid #f87171;
-      box-sizing:border-box;
-      outline:none;
-    " %>
+  
+  <div style="margin-bottom: 12px;">
+    <label>Name</label><br>
+    <%= f.text_field :name, style: "width:100%; padding:6px;" %>
   </div>
 
-  <div style="margin-bottom:18px;">
-    <label style="font-weight:600; color:#361134;">Description</label>
-    <%= f.text_area :description, rows: 4, style: "
-      width:100%;
-      padding:12px 14px;
-      border-radius:10px;
-      border:1.5px solid #f87171;
-      box-sizing:border-box;
-      resize:vertical;
-      outline:none;
-    " %>
+ 
+  <div style="margin-bottom: 12px;">
+    <label>Description</label><br>
+    <%= f.text_area :description, rows: 3, style: "width:100%; padding:6px;" %>
   </div>
 
-  <div style="margin-bottom:18px;">
-    <label style="font-weight:600; color:#361134;">Price</label>
-    <%= f.number_field :price, step: 0.01, style: "
-      width:100%;
-      padding:12px 14px;
-      border-radius:10px;
-      border:1.5px solid #f87171;
-      box-sizing:border-box;
-      outline:none;
-    " %>
+
+  <div style="margin-bottom: 12px;">
+    <label>Price</label><br>
+    <%= f.number_field :price, step: 0.01, style: "width:100%; padding:6px;" %>
   </div>
 
-  <div style="margin-bottom:18px;">
-    <label style="font-weight:600; color:#361134;">Stock</label>
-    <%= f.number_field :stock, style: "
-      width:100%;
-      padding:12px 14px;
-      border-radius:10px;
-      border:1.5px solid #f87171;
-      box-sizing:border-box;
-      outline:none;
-    " %>
+  <div style="margin-bottom: 12px;">
+    <label>Stock</label><br>
+    <%= f.number_field :stock, style: "width:100%; padding:6px;" %>
   </div>
 
-    <div style="margin-bottom:18px;">
-    <label style="font-weight:600; color:#361134;">Feedback</label>
-    <%= f.rich_text_area :feedback, rows: 4, style: "
-      width:100%;
-      padding:12px 14px;
-      border-radius:10px;
-      border:1.5px solid #f87171;
-      box-sizing:border-box;
-      resize:vertical;
-      outline:none;
-    " %>
+
+  <div style="margin-bottom: 12px;">
+    <label>Feedback</label><br>
+    <%= f.rich_text_area :feedback %>
   </div>
 
-  <div style="margin-bottom:24px; display:flex; align-items:center; gap:10px;">
+
+  <div style="margin-bottom: 12px;">
+    <label>Product Photos</label><br>
+    <%= f.file_field :product_photos,multiple:true %>
+  </div>
+
+    <div style="margin-bottom: 12px;">
+    <label>Invoice</label><br>
+    <%= f.file_field :invoice %>
+  </div>
+
+ 
+  <div style="margin-bottom: 12px;">
     <%= f.check_box :is_active %>
-    <label style="font-weight:600; color:#361134;">Is active</label>
+    <label>Is Active</label>
   </div>
 
-  <div style="text-align:center;">
-    <%= f.submit(
-      product.persisted? ? "Update Product" : "Create Product",
-      style: "
-        background:#EA3788;
-        color:white;
-        padding:12px 28px;
-        border-radius:999px;
-        border:none;
-        font-weight:600;
-        cursor:pointer;
-      "
-    ) %>
+  
+  <div>
+    <%= f.submit product.persisted? ? "Update Product" : "Create Product" %>
   </div>
 
 <% end %>

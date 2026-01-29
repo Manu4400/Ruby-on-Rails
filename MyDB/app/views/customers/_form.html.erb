@@ -1,101 +1,48 @@
-<div style="
-  background:#FFFFFF;
-  border-radius:16px;
-  box-shadow:0 10px 26px rgba(153,151,153,0.18);
-  padding:36px;
-  max-width:680px;
-">
+<%= form_with(model: customer, local: true) do |f| %>
 
-  <%= form_with(model: customer, local: true) do |f| %>
-  <%# # it one way of write form control
-  <%= form%>  
-  <%# # form_for 
-   # simple_form %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
 
-    
-    <div style="margin-bottom:22px;">
-      <label style="
-        font-weight:600;
-        color:#1F2937;
-        display:block;
-        margin-bottom:8px;
-      ">
-        Name 
-      </label>
+  <br>
 
-      <%= f.text_field :name, 
-        placeholder: "Full name",
-        style: "
-          width:100%;
-          padding:12px 14px;
-          border-radius:12px;
-          border:1px solid #CBD5E1;
-          font-size:15px;
-          outline:none;
-        " , minlength: 4,maxlength: 10
-      %>
-    </div>
+  <div>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+  </div>
 
- 
-    <div style="margin-bottom:28px;">
-      <label style="
-        font-weight:600;
-        color:#1F2937;
-        display:block;
-        margin-bottom:8px;
-      ">
-        Email
-      </label>
+  <br>
+   <div>
+    <%= f.label :PhoneNumber %><br>
+    <%= f.text_field :phone_number%>
+  </div>
 
-      <%= f.email_field :email, 
-        placeholder: "email@example.com", 
-        style: "
-          width:100%;
-          padding:12px 14px;
-          border-radius:12px;
-          border:1px solid #CBD5E1;
-          font-size:15px;
-          outline:none;
-        " 
-      %>
-    </div>
-     <div style="margin-bottom:28px;">
-      <label style="
-        font-weight:600;
-        color:#1F2937;
-        display:block;
-        margin-bottom:8px;
-      ">
-        About Me
-      </label>
+  <br>
+   <div>
+    <%= f.label :Date_of_birth %><br>
+    <%= f.date_field :date_of_birth %>
+  </div>
 
-      <%= f.rich_text_area :about_me, 
-        
-        style: "
-          width:100%;
-          padding:12px 14px;
-          border-radius:12px;
-          border:1px solid #CBD5E1;
-          font-size:15px;
-          outline:none;
-        " 
-      %>
-    </div>
+  <br>
 
-  
-    <%= f.submit(
-      customer.persisted? ? "Update Customer" : "Create Customer",
-      style: "
-        background:#BDD358;
-        color:#FFFFFF;
-        padding:12px 26px;
-        border:none;
-        border-radius:999px;
-        font-size:15px;
-        font-weight:600;
-        cursor:pointer;
-      "
-    ) %>
+  <div>
+    <%= f.label :about_me %><br>
+    <%= f.rich_text_area :about_me %>
+  </div>
 
-  <% end %>
-</div>
+  <br>
+
+  <div>
+    <%= f.label :profile_photo %><br>
+    <%= f.file_field :profile_photo %>
+  </div>
+
+  <br>
+
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>

@@ -1,5 +1,9 @@
 class Product < ApplicationRecord
   has_rich_text :feedback
+  has_many_attached :product_photos 
+  has_one_attached :invoice
+  
+  # has_one_attached :product_photo   # it is for only one file attached
   # # inbuilt validations
 #  validates :stock, numericality: true
 # validates :stock, length: { minimum: 10, maximum: 20 }

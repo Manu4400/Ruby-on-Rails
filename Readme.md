@@ -432,5 +432,66 @@ raise params.inspect
 
 <hr>
 
+<h2>Active Storage – Single File</h2>
 
+<pre>has_one_attached :profile_photo</pre>
+<pre>&lt;%= form.file_field :profile_photo %&gt;</pre>
+<pre>&lt;%= image_tag @customer.profile_photo %&gt;</pre>
+
+<hr>
+
+<h2>Active Storage – Multiple Files</h2>
+
+<pre>has_many_attached :product_photo</pre>
+<pre>product_photo: []</pre>
+<pre>&lt;%= form.file_field :product_photo, multiple: true %&gt;</pre>
+
+<hr>
+
+<p><b>Note</b></p>
+<p>• Always permit files</p>
+<p>• Same variable names in controller & view</p>
+
+<hr>
+<h2>Task 1 – Invoice Upload (Active Storage)</h2>
+
+<p>Attach file to model</p>
+<pre>has_one_attached :invoice</pre>
+
+<p>Permit in controller</p>
+<pre>:invoice</pre>
+
+<p>Upload in form</p>
+<pre>&lt;%= form.file_field :invoice %&gt;</pre>
+
+<p>View invoice</p>
+<pre>&lt;%= link_to "View Invoice", url_for(@product.invoice) %&gt;</pre>
+
+<hr>
+
+<h2>Task 2 – Add DOB (Migration)</h2>
+
+<p>Generate migration</p>
+<pre>rails g migration AddDobToCustomers dob:date</pre>
+
+<p>Run migration</p>
+<pre>rails db:migrate</pre>
+
+<p>Form field</p>
+<pre>&lt;%= form.date_field :dob %&gt;</pre>
+
+<hr>
+
+<h2>Task 3 – Form Helpers</h2>
+
+<p>text_field → name</p>
+<p>email_field → email</p>
+<p>password_field → password</p>
+<p>text_area → description</p>
+<p>number_field → price</p>
+<p>file_field → upload</p>
+<p>check_box → true/false</p>
+<p>select → dropdown</p>
+
+<hr>
 

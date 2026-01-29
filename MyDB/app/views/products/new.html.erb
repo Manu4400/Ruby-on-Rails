@@ -1,25 +1,20 @@
-<% if @product.errors.any? %> 
- <div id="error_explanation">  
-    <h2><%= pluralize(@product.errors.size, "error") %> 
-  prohibited this object from being saved:</h2> 
-     <ul> 
-         <% @product.errors.full_messages.each do |message| %>    
-    
-        <li><%= message %></li>   
-       <% end %>  
-      </ul> 
-     </div><% end %>
+<% if @product.errors.any? %>
+  <div style="color: red; margin-bottom: 15px;">
+    <h4>
+      <%= pluralize(@product.errors.count, "error") %> prevented saving:
+    </h4>
+
+    <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <% content_for :title, "New Product" %>
 
-<div style="
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 24px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
-  font-family: Arial, sans-serif;
-">
+<div style="width: 400px; margin: auto;">
 
   <h2>New Product</h2>
 

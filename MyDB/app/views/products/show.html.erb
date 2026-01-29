@@ -1,42 +1,75 @@
-
 <% content_for :title, @product.name %>
 
 <div style="
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 24px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
-  font-family: Arial, sans-serif;
+  max-width:700px;
+  margin:40px auto;
+  padding:24px;
+  background:#ffffff;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  font-family:Arial, sans-serif;
 ">
 
-  <div style="display: flex; justify-content: space-between;">
+  <div style="display:flex; justify-content:space-between; align-items:center;">
     <h2><%= @product.name %></h2>
 
-    <span style="color: <%= @product.is_active ? 'green' : 'red' %>;">
+    <span style="
+      font-weight:600;
+      color:<%= @product.is_active ? 'green' : 'red' %>;
+    ">
       <%= @product.is_active ? "Active" : "Inactive" %>
     </span>
-
   </div>
 
-  <p style="color: #555;"><%= @product.description %></p>
+  
+  <p style="color:#555;">
+    <%= @product.description.presence || "No description" %>
+  </p>
 
   <p>
     <strong>Price:</strong> ₹ <%= @product.price %><br>
-    <strong>Stock:</strong> <%= @product.stock %><br>
-    <strong>Feedback:</strong> <%= @product.feedback.presence||"No FeedBack" %>
+    <strong>Stock:</strong> <%= @product.stock %>
   </p>
 
+  
+  <p>
+    <strong>Feedback:</strong><br>
+    <%= @product.feedback.present? ? @product.feedback : "No feedback" %>
+  </p>
+
+  
+ <p>
+  <strong>Product Photos:</strong><br>
+
+  <% if @product.product_photos.attached? %>
+    <% @product.product_photos.each do |photo| %>
+      <%= image_tag url_for(photo), width: 150 %>
+    <% end %>
+  <% else %>
+    No product photo
+  <% end %>
+</p>
+<p>
+<strong>Invoice</strong>
+<% if @product.invoice.attached? %>
+          <%= link_to "View PDF", rails_blob_path(@product.invoice, disposition:"inline")%>
+        <% else %>
+            <p>No invoice file</p>
+        <% end %>
+</p>
+
+
+
   <hr>
+
 
   <p>
     <%= link_to "Edit", edit_product_path(@product) %> |
     <%= link_to "Back", products_path %> |
-    <%= link_to "Delete", @product,
+    <%= button_to "Delete", @product,
           method: :delete,
           data: { confirm: "Are you sure?" },
-          style: "color:red;" %>
+          style: "color:red; background:none; border:none; cursor:pointer;" %>
   </p>
 
 </div>
