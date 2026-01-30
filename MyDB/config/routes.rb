@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 #  resources :products , except: [:show]do   it will not create show 
 #  resources :products , only: [:show]do   it will create show only
+
+if Rails.env.development?
+  mount LetterOpenerWeb::Engine,at: "/letter_opener"
+end
+
  resources :products do  
     collection do     
        get 'out_of_stock'  

@@ -67,3 +67,10 @@ end
 
 # newly added gems
 gem "faker" 
+
+# letter_opener  this is only for development 
+gem "letter_opener" , group: :development
+
+gem "letter_opener_web" , group: :development # not mandontary it is for view 
+
+
