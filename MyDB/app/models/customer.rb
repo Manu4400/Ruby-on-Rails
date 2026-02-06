@@ -35,6 +35,7 @@ class Customer < ApplicationRecord
 
 #    scope :blacklisted_customers, ->(customer_ids) { where(id: customer_ids) }
 
+
 scope :blacklisted_customers, ->(customer_ids) { where(id: customer_ids) }
 
 end

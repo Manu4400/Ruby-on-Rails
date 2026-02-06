@@ -10,12 +10,15 @@ class CustomersController < ApplicationController
   def index
     # @list_of_customer =[1,2,3]
     # @customers = Customer.blacklisted_customers(@list_of_customer)
+    # @customers =Customer.find 
     @customers =Customer.all
+    # raise @customers.class.inspect
   end
 
   # GET /customers/1 or /customers/1.json
   def show
     # raise params.inspect
+    @customer = Customer.find(params[:id])
   end
 
   # GET /customers/new

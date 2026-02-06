@@ -1,8 +1,10 @@
 class Product < ApplicationRecord
+  has_and_belongs_to_many :tags
+  has_many :offers , through: :products_offers
   has_rich_text :feedback
   has_many_attached :product_photos 
   has_one_attached :invoice
-  
+  # validate :all
   # has_one_attached :product_photo   # it is for only one file attached
   # # inbuilt validations
 #  validates :stock, numericality: true

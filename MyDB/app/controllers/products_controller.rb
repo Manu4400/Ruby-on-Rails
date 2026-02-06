@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
       @products =Product.out_of_stock
     end
 
+    
+    
+ 
   # GET /products or /products.json
   def index
     @products = Product.all
@@ -26,9 +29,9 @@ class ProductsController < ApplicationController
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
+    ProductMailer.with(product: @product).welcome_mailer.deliver
     respond_to do |format|
       if @product.save
-         ProductMailer.with(product: @product).welcome_mailer.deliver
         format.html { redirect_to @product, notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
       else
